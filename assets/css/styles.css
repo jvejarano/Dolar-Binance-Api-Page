@@ -1,0 +1,54 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #F8F8F9, #111439);
+    color: #111439;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #111439;
+    background-color: #F8F8F9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cotizacion {
+    background-color: #F8F8F9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+button {
+    background-color: #111439;
+    color: #F8F8F9;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2a2f5b;
+}
+
+.container {
+    text-align: center;
+    max-width: 600px;
+    margin: auto;
+}
