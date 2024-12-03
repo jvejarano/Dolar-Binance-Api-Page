@@ -9,9 +9,31 @@
 <body>
     <h1>Cotización del dólar estadounidense en pesos bolivianos según Binance</h1>
     <div id="cotizacion">
-        <p>Cargando cotización...</p>
-        <!-- <button onclick="obtenerCotizacion()">Actualizar Cotización</button> -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor (Bs)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Compra</td>
+                    <td id="compra">Cargando...</td>
+                </tr>
+                <tr>
+                    <td>Venta</td>
+                    <td id="venta">Cargando...</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
+    <footer>
+        <p>&copy; 2024 vejar.DEV.</p>
+    </footer>
+
+    <p>Este proyecto es una página simple que muestra la cotización del Peso Boliviano (Bs) frente al Dólar (USD) en Binance, utilizando la API pública disponible en <a href="https://bo.dolarapi.com">https://bo.dolarapi.com</a>.</p>
 
     <script>
         async function obtenerCotizacion() {
@@ -21,9 +43,11 @@
                     throw new Error('Error al obtener la cotización');
                 }
                 const data = await respuesta.json();
-                document.getElementById('cotizacion').innerHTML = `<p>Compra: ${data.compra} Bs</p><p>Venta: ${data.venta} Bs</p>`;
+                document.getElementById('compra').innerText = `${data.compra} Bs`;
+                document.getElementById('venta').innerText = `${data.venta} Bs`;
             } catch (error) {
-                document.getElementById('cotizacion').innerHTML = '<p>Error al obtener la cotización. Intente nuevamente más tarde.</p>';
+                document.getElementById('compra').innerText = 'Error';
+                document.getElementById('venta').innerText = 'Error';
                 console.error(error);
             }
         }

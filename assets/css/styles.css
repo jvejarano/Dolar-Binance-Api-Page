@@ -27,6 +27,31 @@ h1 {
     margin-top: 20px;
 }
 
+#cotizacion table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#cotizacion th, #cotizacion td {
+    border: 1px solid #111439;
+    padding: 10px;
+    text-align: left;
+}
+
+#cotizacion th {
+    background-color: #111439;
+    color: #F8F8F9;
+}
+
+footer {
+    background-color: #111439;
+    color: #F8F8F9;
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
 p {
     font-size: 1.2em;
 }
