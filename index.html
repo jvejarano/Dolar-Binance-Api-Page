@@ -9,7 +9,26 @@
 <body>
     <h1>Cotización del dólar estadounidense en pesos bolivianos según Binance</h1>
     <div id="cotizacion">
-        <p>Cargando cotización...</p>
+        <table>
+            <p id="ultimaActualizacion">Última actualización: Cargando...</p>
+
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Valor (Bs)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Compra</td>
+                    <td id="compra">Cargando...</td>
+                </tr>
+                <tr>
+                    <td>Venta</td>
+                    <td id="venta">Cargando...</td>
+                </tr>
+            </tbody>
+        </table>
         <!-- <button onclick="obtenerCotizacion()">Actualizar Cotización</button> -->
     </div>
 
@@ -21,15 +40,38 @@
                     throw new Error('Error al obtener la cotización');
                 }
                 const data = await respuesta.json();
-                document.getElementById('cotizacion').innerHTML = `<p>Compra: ${data.compra} Bs</p><p>Venta: ${data.venta} Bs</p>`;
+                document.getElementById('compra').innerText = `${data.compra} Bs`;
+                document.getElementById('venta').innerText = `${data.venta} Bs`;
             } catch (error) {
-                document.getElementById('cotizacion').innerHTML = '<p>Error al obtener la cotización. Intente nuevamente más tarde.</p>';
+                document.getElementById('compra').innerText = 'Error';
+                document.getElementById('venta').innerText = 'Error';
                 console.error(error);
             }
         }
+        function actualizarHora() {
+    const ahora = new Date();
+    const hora = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+    document.getElementById('ultimaActualizacion').innerText = `Última actualización: ${hora}`;
+}
+
+async function obtenerCotizacion() {
+    try {
+        const respuesta = await fetch('https://bo.dolarapi.com/v1/dolares/binance');
+        const data = await respuesta.json();
+        document.getElementById('compra').innerText = `${data.compra} Bs`;
+        document.getElementById('venta').innerText = `${data.venta} Bs`;
+
+        actualizarHora(); // Muestra la hora después de actualizar los datos
+    } catch (error) {
+        console.error('Error al obtener la cotización:', error);
+        document.getElementById('compra').innerText = 'Error';
+        document.getElementById('venta').innerText = 'Error';
+    }
+}
 
         window.onload = obtenerCotizacion;
     </script>
     
 </body>
 </html>
+
