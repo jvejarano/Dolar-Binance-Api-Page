@@ -1,9 +1,7 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #F8F8F9, #2E8B57);
-    /* Soft green gradient */
-    color: #2E8B57;
-    /* Dark green color */
+    background: linear-gradient(to right, #B3C100, #4CB5F5); /* Gradient with provided colors */
+    color: #23282D; /* Dark color for text */
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,31 +12,27 @@ body {
 }
 
 h1 {
-    color: #2E8B57;
-    /* Dark green color */
-    background-color: #F8F8F9;
+    color: #1F3F49; /* Dark blue color */
+    background-color: #CED2CC; /* Light grey background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border: 2px solid #B22222;
-    /* Red border */
+    border: 2px solid #D32D41; /* Red border */
 }
 
-.christmas-image {
-    width: 150px;
-    /* Adjust the size as needed */
+.exchange-image {
+    width: 150px; /* Adjust the size as needed */
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
 #cotizacion {
-    background-color: #F8F8F9;
+    background-color: #CED2CC; /* Light grey background */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
-    border: 2px solid #B22222;
-    /* Red border */
+    border: 2px solid #6AB187; /* Green border */
 }
 
 table {
@@ -47,23 +41,18 @@ table {
     margin-top: 20px;
 }
 
-th,
-td {
-    border: 1px solid #2E8B57;
-    /* Dark green border */
+th, td {
+    border: 1px solid #1F3F49; /* Dark blue border */
     padding: 10px;
     text-align: center;
 }
 
 th {
-    background-color: #B22222;
-    /* Red background */
-    color: #F8F8F9;
-    /* White text */
+    background-color: #D32D41; /* Red background */
+    color: #CED2CC; /* Light grey text */
 }
 
 td {
-    background-color: #F8F8F9;
-    color: #2E8B57;
-    /* Dark green text */
+    background-color: #CED2CC; /* Light grey background */
+    color: #23282D; /* Dark text */
 }
