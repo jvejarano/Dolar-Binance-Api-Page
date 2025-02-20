@@ -1,3 +1,4 @@
+// archivo javacript  de la aplicación web de cotización de dólar   en Binance en tiempo real 
 async function obtenerCotizacion() {
     try {
         const respuesta = await fetch('https://bo.dolarapi.com/v1/dolares/binance');

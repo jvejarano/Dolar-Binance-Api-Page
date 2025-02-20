@@ -3,18 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Consulta el precio del dólar en Binance actualizado en tiempo real. Herramienta confiable para traders y entusiastas de las criptomonedas. Descubre los mejores datos del mercado cripto aquí.">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Consulta el precio actualizado del dólar en Binance a peso boliviano en tiempo real. Ideal para traders, inversores y usuarios en Bolivia interesados en el mercado cripto. ¡Accede a los datos más precisos aquí!">
+    <meta name="keywords" content="dolar, binance, precio, cotizacion, bolivia, peso boliviano, criptomonedas, mercado, trading, inversión, finanzas, economía">
+    <meta name="author" content="DolarApi">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Cotización del dólar en Binance a peso boliviano">
+    <meta property="og:description" content="Consulta el precio del dólar en Binance actualizado en tiempo real. Información confiable para traders y usuarios interesados en criptomonedas en Bolivia.">
+    <meta property="og:image" content="https://tu-sitio-web.com/assets/images/imagen-ejemplo.png">
+    <meta property="og:url" content="https://bo.dolarapi.com">
+    <meta property="og:type" content="website">
 
     <title>Cotización Dólar Binance</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h1>Cotización del dólar estadounidense en pesos bolivianos según Binance</h1>
-    <!-- <img src="assets/images/christmas-8bit.png" alt="Christmas 8-bit" class="christmas-image"> -->
+    <h1>Cotización del dólar en Binance a peso boliviano en tiempo real</h1>
     <div id="cotizacion">
         <table>
             <p id="ultimaActualizacion">Última actualización: Cargando...</p>
-
             <thead>
                 <tr>
                     <th>Tipo</th>
@@ -32,7 +40,7 @@
                 </tr>
             </tbody>
         </table>
-        <!-- <button onclick="obtenerCotizacion()">Actualizar Cotización</button> -->
+        <button onclick="obtenerCotizacion()">Actualizar Cotización</button>
     </div>
 
     <script>
@@ -45,36 +53,24 @@
                 const data = await respuesta.json();
                 document.getElementById('compra').innerText = `${data.compra} Bs`;
                 document.getElementById('venta').innerText = `${data.venta} Bs`;
+
+                actualizarHora(); // Actualiza la hora tras cargar los datos
             } catch (error) {
+                console.error('Error al obtener la cotización:', error);
                 document.getElementById('compra').innerText = 'Error';
                 document.getElementById('venta').innerText = 'Error';
-                console.error(error);
             }
         }
+
         function actualizarHora() {
-    const ahora = new Date();
-    const hora = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-    document.getElementById('ultimaActualizacion').innerText = `Última actualización: ${hora}`;
-}
-
-async function obtenerCotizacion() {
-    try {
-        const respuesta = await fetch('https://bo.dolarapi.com/v1/dolares/binance');
-        const data = await respuesta.json();
-        document.getElementById('compra').innerText = `${data.compra} Bs`;
-        document.getElementById('venta').innerText = `${data.venta} Bs`;
-
-        actualizarHora(); // Muestra la hora después de actualizar los datos
-    } catch (error) {
-        console.error('Error al obtener la cotización:', error);
-        document.getElementById('compra').innerText = 'Error';
-        document.getElementById('venta').innerText = 'Error';
-    }
-}
+            const ahora = new Date();
+            const hora = ahora.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('ultimaActualizacion').innerText = `Última actualización: ${hora}`;
+        }
 
         window.onload = obtenerCotizacion;
     </script>
-    
 </body>
 </html>
+
 
